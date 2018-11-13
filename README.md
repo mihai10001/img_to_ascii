@@ -13,3 +13,10 @@ NO COPY PASTE code
 If you can still read this: implementation just started.
 Fixed major bugs.
 Created structre + functions.
+Created classes and organized code.
+
+This is what the main does:
+
+# IMPORT IMAGE(CONVERTED TO GRAYSCALE)
+# TRAVERSE THE IMAGE
+# WRITE THE IMAGE AS A TEXT FILE
