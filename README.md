@@ -11,12 +11,44 @@ NO COPY PASTE code
 
 
 If you can still read this: implementation just started.
-Fixed major bugs.
-Created structre + functions.
-Created classes and organized code.
+Fixed major bugs.<br/>
+Created structre + functions.<br/>
+Created classes and organized code.<br/>
 
-This is what the main does:
+This is what the main does:<br/><br/>
 
-# IMPORT IMAGE(CONVERTED TO GRAYSCALE)
-# TRAVERSE THE IMAGE
-# WRITE THE IMAGE AS A TEXT FILE
+-IMPORT IMAGE(CONVERTED TO GRAYSCALE)
+-TRAVERSE THE IMAGE
+-WRITE THE IMAGE AS A TEXT FILE
+
+Test for fun: 
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                         ++++++++++++                                                                                                               
+                       ++, ,+++++++++++                                                     ~~                                                      
+                       ++, ,+++++++++++                                                     ~~                                                      
+                       ++++++++++++++++                                              ~~     ~~                                                      
+                 ++++++++++++++++++++++ ;;;;;                                        ~~     ~~                                                      
+               ++++++++++++++++++++++++ ;;;;;;;         ~~~~`;~~~    ~~;      ~~<  i~~~~~   ~~~~~~~~~~     ~~~~l~~~     `~~~ `~~~~                  
+               ++++++++++++++++++++++++ ;;;;;;;        ~~       ~~   ~~;      ~~<    ~~     ~~~     i~~   ~~      ~~~  "~~      ~~                  
+               +++++++++++++++++++++++ ;;;;;;;;        ~~       ~~~  ~~;      ~~<    ~~     ~~       ~~  ~~~       ~~  "~~      ~~"                 
+               +++++++++ `^"""""""";;;;;;;;;;;;        ~~       ~~~  ~~;      ~~<    ~~     ~~       ~~  ~~~       ~~" "~~      ~~"                 
+               +++++++` ;;;;;;;;;;;;;;;;;;;;;;;        ~~       ~~>  ~~~      ~~<    ~~     ~~       ~~  ^~~       ~~  "~~      ~~"                 
+               +++++++ ;;;;;;;;;;;;;;;;;;;;;;;;        ~~~     ~~~    ~~      ~~<    ~~     ~~       ~~   ~~~     ~~   "~~      ~~"                 
+                ++++++ ;;;;;;;;;;;;;;;;;;;;;;;         ~~::~~~~~       i~~~~~ ~~<     ~~~   ~~       ~~      ~~~~~      ~~      ~~                  
+                       ;;;;;;;;""""""""                ~~                     ~~                                                                    
+                       ;;;;;;;;;;;;;;;;                ~~                     ~~                                                                    
+                       ;;;;;;;;;;;   ;;                ~~                ~~~~~                                                                      
+                        ;;;;;;;;;;;;;;                                                                                                              
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
