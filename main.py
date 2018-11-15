@@ -1,18 +1,24 @@
-from read import import_grayscale, import_color
-from traverse import traverse_grayscale_image, traverse_color_image
-from write import write_img_as_txt, write_img_gray, write_img_color
+from read import import_grayscale, import_grayscale_array, import_color, import_color_array
+from traverse import return_grayscale_img, return_grayscale_array
+from write import write_txt_from_img, write_txt_from_array
 
 
 if __name__ == "__main__":
 
     filename = 'test.jpg'
-    img, (h, w) = import_grayscale(filename)
-    img2, (h, w, z) = import_color(filename)
-
-    new_img, new_w, new_h = traverse_grayscale_image(img, w, h)
-    new_img2, new_w2, new_h2, z = traverse_color_image(img2, w, h, z)
+    img = import_grayscale(filename)
+    img_ga = import_grayscale_array(filename)
+    img_c = import_color(filename)
+    img_ca = import_color_array(filename)
 
     #  FEATURES :
-    text = write_img_as_txt(new_img, new_w, new_h)
-    img3 = write_img_gray(text)
-    img4 = write_img_color(new_img2, text, new_w2, new_h2)
+
+    #  ~~ 1 ~~  :
+    gray_img = return_grayscale_img(img)
+    text = write_txt_from_img(gray_img)
+    #  ~~ OR ~~ :
+    gray_array = return_grayscale_array(img_ga)
+    text2 = write_txt_from_array(gray_array)
+
+    #img3 = write_img_gray(text)
+    #img4 = write_img_color(new_img2, text, new_w2, new_h2)
