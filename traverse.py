@@ -1,3 +1,4 @@
+from math import ceil
 from PIL import Image
 import numpy as np
 
@@ -10,20 +11,21 @@ def get_gcd(height, width):
 def get_median(arr):
     return int(np.median(arr))
 
-#  # MAXSIZE ~= DIVISOR = NEIGHBOURHOOD = SCALING FACTOR, ETC, ETC
-#  # PATCH 2 <3
-#  # for viewing with a text editor, keeping aprox. the same ratio as the image
+#  !~~~~~~~~~~~~~~~~~~~~~~~ GUIDE ~~~~~~~~~~~~~~~~~~~~~~~!:
+
+#  MAXSIZE = optimal size for viewing with a text editor
+#  PATCH = 2 => for viewing with a text editor, keeping aprox. the same ratio as the image
+#  DIVISOR = NEIGHBOURHOOD = SCALING FACTOR
 
 
-def return_grayscale_img(image, maxsize=(256, 256), patch=2):
+def scaled_img(image, maxsize=(256, 256), patch=2):
     new_image = image
     new_image.thumbnail(maxsize, Image.ANTIALIAS)
     new_image = new_image.resize((new_image.size[0], int(new_image.size[1]/patch)))
     return new_image
 
 
-def return_grayscale_array(array, patch=2):
-    from math import ceil
+def scaled_gray_array(array, patch=2):
     (height, width) = array.shape
     divisor = get_gcd(height, width)
     new_array = np.zeros((ceil(height/(divisor*patch)), ceil(width/divisor)), dtype=np.uint8)
@@ -35,8 +37,7 @@ def return_grayscale_array(array, patch=2):
     return new_array
 
 
-def return_color_array(array, patch=2):
-    from math import ceil
+def scaled_color_array(array, patch=2):
     (height, width, z) = array.shape
     divisor = get_gcd(width, height)
     new_array = np.zeros((ceil(height/(divisor*patch)), ceil(width/divisor), z), dtype=np.uint8)
