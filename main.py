@@ -7,7 +7,11 @@ if __name__ == "__main__":
 
     filename = 'test.jpg'
     img = import_grayscale(filename)
+
     img_ga = import_grayscale_array(filename)
+    # print(img_ga[858: 864, 0:3])
+    # print(img_ga[580: 583, 858: 864])
+
     img_c = import_color(filename)
     img_ca = import_color_array(filename)
 

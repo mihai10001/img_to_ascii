@@ -5,8 +5,9 @@ from style import get_mapping
 def write_txt_from_img(img, result='result0.txt'):
     (width, height) = img.size
     mapping = get_mapping()
-    text = ''
+
     with open(result, 'w') as file:
+        text = ''
         for row in range(0, height):
             for col in range(0, width):
                 text += ''.join(element['ch'] for element in mapping if img.getpixel((col, row)) in range(element['st'], element['en'] + 1))
@@ -16,14 +17,14 @@ def write_txt_from_img(img, result='result0.txt'):
 
 
 def write_txt_from_array(array, result='result1.txt'):
-    (width, height) = array.shape
-    print(array.shape)
+    (height, width) = array.shape
     mapping = get_mapping()
-    text = ''
+
     with open(result, 'w') as file:
+        text = ''
         for row in range(0, height):
             for col in range(0, width):
-                text += ''.join(element['ch'] for element in mapping if array[col, row] in range(element['st'], element['en'] + 1))
+                text += ''.join(element['ch'] for element in mapping if array[row, col] in range(element['st'], element['en'] + 1))
             text += '\n'
         file.write(text)
     return text
