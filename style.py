@@ -1,9 +1,9 @@
-def get_style():
+def get_default_style():
     return " .`'\"^,:;Il!i><~+jrdbk*#M@"
 
 
 def get_mapping():
-    style = get_style()
+    style = get_default_style()
     mapping, start = [], 0
     part = int(255/len(style))
     for c in reversed(style):
