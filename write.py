@@ -70,8 +70,6 @@ def get_gray_img(text):
 #             draw.text((j*1**3, i*1*patch**3), lines[i][j], tuple(color[i, j]), font=font)
 #     return image
 
-#git commit -m 'getting there: improved algo' -a
-
 def enhance_img(image):
     factor = 1.5
     sharpen = ImageEnhance.Sharpness(image)
