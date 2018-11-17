@@ -1,54 +1,41 @@
-# img_to_ascii
-Another personal project made for fun.
-Simple Image to ASCII(text) converter.
-Widely known concept, implemented by me.
+# Image to ASCII(text) converter.  
+A personal project made for fun.  
+Widely known concept, implemented by me.  
+It needs a couple of optimizations, but the overall performance is fine.  
 
-(
-Solo tought about algorithms, and ways of dealing with pixels, arranging them into arrays,
-modifying and other array calculations
-NO COPY PASTE code
-)
+_I had to create some algorithms, that deal with pixel arrays of 1D or 3D._    
+_Also other various array computations, mapping pixel to characters, etc._   
 
+## How to run:  
+> For now, you can run the script with the command: __python3 main.py__  
+> It will aditionally require two well-known Python modules: Numpy and Pillow.
+> Install them with: pip3 install numpy, pip3 install Pillow
 
-If you can still read this: implementation just started.
-Fixed major bugs.<br/>
-Created structre + functions.<br/>
-Created classes and organized code.<br/>
+## Small example:  
+Input image:  
+![](https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg)
 
-This is what the main does:<br/><br/>
-
--IMPORT IMAGE(CONVERTED TO GRAYSCALE)
--TRAVERSE THE IMAGE
--WRITE THE IMAGE AS A TEXT FILE
-
-Test for fun: 
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                         ++++++++++++                                                                                                               
-                       ++, ,+++++++++++                                                     ~~                                                      
-                       ++, ,+++++++++++                                                     ~~                                                      
-                       ++++++++++++++++                                              ~~     ~~                                                      
-                 ++++++++++++++++++++++ ;;;;;                                        ~~     ~~                                                      
-               ++++++++++++++++++++++++ ;;;;;;;         ~~~~`;~~~    ~~;      ~~<  i~~~~~   ~~~~~~~~~~     ~~~~l~~~     `~~~ `~~~~                  
-               ++++++++++++++++++++++++ ;;;;;;;        ~~       ~~   ~~;      ~~<    ~~     ~~~     i~~   ~~      ~~~  "~~      ~~                  
-               +++++++++++++++++++++++ ;;;;;;;;        ~~       ~~~  ~~;      ~~<    ~~     ~~       ~~  ~~~       ~~  "~~      ~~"                 
-               +++++++++ `^"""""""";;;;;;;;;;;;        ~~       ~~~  ~~;      ~~<    ~~     ~~       ~~  ~~~       ~~" "~~      ~~"                 
-               +++++++` ;;;;;;;;;;;;;;;;;;;;;;;        ~~       ~~>  ~~~      ~~<    ~~     ~~       ~~  ^~~       ~~  "~~      ~~"                 
-               +++++++ ;;;;;;;;;;;;;;;;;;;;;;;;        ~~~     ~~~    ~~      ~~<    ~~     ~~       ~~   ~~~     ~~   "~~      ~~"                 
-                ++++++ ;;;;;;;;;;;;;;;;;;;;;;;         ~~::~~~~~       i~~~~~ ~~<     ~~~   ~~       ~~      ~~~~~      ~~      ~~                  
-                       ;;;;;;;;""""""""                ~~                     ~~                                                                    
-                       ;;;;;;;;;;;;;;;;                ~~                     ~~                                                                    
-                       ;;;;;;;;;;;   ;;                ~~                ~~~~~                                                                      
-                        ;;;;;;;;;;;;;;                                                                                                              
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
-                                                                                                                                                    
+Output text:  
+`
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@~~~~~~~~~~~~~@@@@@@@@@@@@
+@@@@@@@@@@~~~b~~~~~~~~~~~~~@@@@@@@@@@
+@@@@@@@@@~~~@@b~~~~~~~~~~~~@@@@@@@@@@
+@@@@@@@@@~~~~~~~~~~~~~~~~++@@@@@@@@@@
+@@@@@@@@@@bbbbbbbb~~~~~++++@@~~~@@@@@
+@@~~~~~~~~~~~~~~~~~~~++++++@"""^^^^@@
+@~~~~~~~~~~~~~~~~~~++++++++@^^^^^^^^@
+~~~~~~~~~~~~~~~~~++++++++++@^^^^^^^^^
+~~~~~~~~~~~~~~~++++++++++k@^^^^^^^^^^
+~~~~~~~~~~@@~"""""""""^^^^^^^^^^^^^^^
+~~~~~~~~~@"""""""""""^^^^^^^^^^^^^^^^
+~~~~~~~~M""""""""""^^^^^^^^^^^^^^^^^@
+@~~~~~~+@""""""""^^^^^^^^^^^^^^^^^^@@
+@@@+~+++@""""""^^^^^^^^^^^^^^^^^,@@@@
+@@@@@@@@@""""^^^^^^^^^^^^^^@@@@@@@@@@
+@@@@@@@@@""^^^^^^^^^^^^@^^^@@@@@@@@@@
+@@@@@@@@@@^^^^^^^^^^^^@@^^^@@@@@@@@@@
+@@@@@@@@@@@^^^^^^^^^^^^^^^@@@@@@@@@@@
+@@@@@@@@@@@@@@~^^^^^^^^+@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+`
