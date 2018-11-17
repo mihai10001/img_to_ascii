@@ -1,56 +1,35 @@
-from read import import_gray, import_gray_array, import_color, import_color_array
-from traverse import set_scaling, scaled_img, scaled_gray_array, scaled_color_array
-from write import write_txt_from_img, write_txt_from_array, get_gray_img, get_color_img, save_img
-
+from src.read import import_gray, import_gray_array, import_color, import_color_array
+from src.traverse import set_scaling, scaled_img, scaled_gray_array, scaled_color_array
+from src.write import write_txt_from_img, write_txt_from_array, get_gray_img, get_color_img, save_img
 
 if __name__ == "__main__":
 
-    print('\n\nHello, and welcome to my Image to ASCII(text) converter.',
-          'In order to get started, place your image in the same folder as the main file.',
-          'After that, input here the image name and press enter:', sep='\n')
-    filename = 'test.jpg'  # input()
-
+    print('\n\nHello, and welcome to my Image to ASCII(text) converter.\n',
+          'In order to get started, place your image in the same folder as the main file.\n',
+          'After that, input the full image name (with the format) and press enter.\n', sep='')
+    filename = input('Image name: ')
     img = import_gray(filename)
     img_c = import_color(filename)
     img_ga = import_gray_array(filename)
     img_ca = import_color_array(filename)
 
-    print('\n\nNext, the program needs to know the scaling factor it should use.',
-          'I will explain that a bit later, but for now input it', sep='\n')
-    # scale = int(input())
-    set_scaling(3)
+    print('\n\nNext, the program needs to know the scaling factor it should use, input any integer from (0, infinity) and press enter.\n',
+          'I would suggest picking a scaling factor of 2, 3, or 4 for acceptable results.\n',
+          'A one scaling factor, or 1:1 means that the result will have as many characters as there are pixels in the input image.\n',
+          'A three scaling factor, or 1:3x3 means that the result will have a character for every 3x3 grid of pixels from the input image.\n'
+          'You can, in theory, use any scaling factor, but keep in mind that it is inversely proportional with the quality of the result.\n', sep='')
+    set_scaling(int(input('Scaling factor: ')))
 
-    print('\n\nLastly, input the functioning mode and press enter:',
-          '1. The first mode is simply creating the ASCII art in a text file.',
-          '2. The second mode also creates additional images of the art', sep='\n')
-    # mode = int(input())
-
-    # if mode == 1:
-    #     gray_img = scaled_img(img)
-    #     text = write_txt_from_img(gray_img)
-    #     print('iei')
-    # elif mode == 2:
-    gray_array = scaled_gray_array(img_ga)
-    color_array = scaled_color_array(img_ca)
-    text = write_txt_from_array(gray_array)
-    save_img(get_gray_img(text), name='result_gray')
-    save_img(get_color_img(color_array, text), name='result_color')
-
-    # #  FEATURES :
-
-    # #  ~~ 1 ~~  :
-    # gray_img = scaled_img(img)
-    # text = write_txt_from_img(gray_img)
-
-    # #  ~~ OR ~~ :
-
-    # #  ~~ 1 ~~  :
-    # gray_array = scaled_gray_array(img_ga)
-    # text = write_txt_from_array(gray_array)
-
-    # #  ~~ 2 ~~  :
-    # write_gray_img(text)
-
-    # #  ~~ 3 ~~  :
-    # color_array = scaled_color_array(img_ca)
-    # write_color_img(color_array, text)
+    print('\n\nLastly, specify the functioning mode number.\n',
+          '1. Express:  The first mode is simply creating the ASCII art in a text file called "results.txt", using a fast computing method.\n',
+          '2. Extended: The second mode creates the ASCII art and also creates two additional images(gray, color).\n', sep='')
+    mode = int(input('Functioning mode number :'))
+    if mode == 1:
+        gray_img = scaled_img(img)
+        text = write_txt_from_img(gray_img)
+    elif mode == 2:
+        gray_array = scaled_gray_array(img_ga)
+        color_array = scaled_color_array(img_ca)
+        text = write_txt_from_array(gray_array)
+        save_img(get_gray_img(text, img_ga.shape[0], img_ga.shape[1]), name='result_gray')
+        save_img(get_color_img(color_array, text, img_ga.shape[0], img_ga.shape[1]), name='result_color')

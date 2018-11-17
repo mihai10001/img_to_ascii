@@ -6,38 +6,46 @@ import numpy as np
 
 #  SCALE = SCALE FACTOR ( NEIGHBOURHOOD )
 #  MAXSIZE => arbitrary optimal size for viewing with a text editor
+
+
+#  !~~~~~~~~~~~~~~~~~~~~~~~ GUIDE~~~~~~~~~~~~~~~~~~~~~~~~!
+
 #  PATCH = 2 => for viewing with a text editor, keeping ~ the same ratio
+#            => for reconstructing the original photo
 
-#  !~~~~~~~~~~~~~~~~~~~~~~~ GUIDE ~~~~~~~~~~~~~~~~~~~~~~~!
-
-scale_factor = None
-
-
-def set_scaling(factor):
-    global scale_factor
-    scale_factor = int(factor)
+maxsize = (256, 256)
+scale = None
+patch = 2
 
 
-def get_scaling(height=None, width=None):
-    if scale_factor:
-        return scale_factor
+def set_scaling(factor, height=None, width=None):
+    global scale
+    if factor:
+        scale = factor
     else:
         from fractions import gcd
-        return gcd(height, width)
+        scale = gcd(height, width)
+
+
+def get_scaling():
+    return scale
+
+
+def get_patch():
+    return patch
 
 
 def get_median(array):
     return int(np.median(array))
 
 
-def scaled_img(image, maxsize=(256, 256), patch=2):
+def scaled_img(image):
     new_image = image
-    new_image.thumbnail(maxsize, Image.ANTIALIAS)
+    new_image.thumbnail(maxsize, Image.BICUBIC)
     return new_image.resize((new_image.size[0], int(new_image.size[1]/patch)))
 
 
-def scaled_gray_array(array, patch=2):
-    scale = get_scaling()
+def scaled_gray_array(array):
     (height, width) = array.shape
     new_array = np.zeros((ceil(height/(scale*patch)), ceil(width/scale)), dtype=np.uint8)
 
@@ -48,8 +56,7 @@ def scaled_gray_array(array, patch=2):
     return new_array
 
 
-def scaled_color_array(array, patch=2):
-    scale = get_scaling()
+def scaled_color_array(array):
     (height, width, z) = array.shape
     new_array = np.zeros((ceil(height/(scale*patch)), ceil(width/scale), z), dtype=np.uint8)
 
