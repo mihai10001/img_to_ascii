@@ -24,6 +24,7 @@ def write_txt_from_img(image, result='result.txt'):
     if result:
         with open(result, 'w') as file:
             file.write(text)
+            print('\nWrote ASCII art to "%s" !' % result)
     return text
 
 
@@ -40,6 +41,7 @@ def write_txt_from_array(array, result='result.txt'):
     if result:
         with open(result, 'w') as file:
             file.write(text)
+            print('\nWrote ASCII art to "%s" !' % result)
     return text
 
 
@@ -59,7 +61,7 @@ def get_gray_img(text, orig_h, orig_w):
     image = Image.new('RGB', (orig_w*maxify, orig_h*maxify))
     draw = ImageDraw.Draw(image)
     lines = text.splitlines()
-    fontsize = font_scale(lines[0], orig_w*maxify)
+    fontsize = font_scale(lines[0], orig_w*maxify) + 1
     font = ImageFont.truetype(font_path, fontsize)
 
     h, w = len(lines), len(lines[0])
@@ -74,7 +76,7 @@ def get_color_img(color, text, orig_h, orig_w):
     image = Image.new('RGB', (orig_w*maxify, orig_h*maxify))
     draw = ImageDraw.Draw(image)
     lines = text.splitlines()
-    fontsize = font_scale(lines[0], orig_w*maxify)
+    fontsize = font_scale(lines[0], orig_w*maxify) + 3
     font = ImageFont.truetype(font_path, fontsize)
 
     (h, w, z) = color.shape
@@ -85,14 +87,19 @@ def get_color_img(color, text, orig_h, orig_w):
 
 
 def enhance_img(image):
-    factor = 1.5
-    sharpen = ImageEnhance.Sharpness(image)
-    brighten = ImageEnhance.Brightness(image)
-    sharpen.enhance(factor), brighten.enhance(factor)
-    return image
+    factor = 1.7
+    modified = image
+    contrast = ImageEnhance.Contrast(modified)
+    modified = contrast.enhance(factor)
+    brighten = ImageEnhance.Brightness(modified)
+    modified = brighten.enhance(factor)
+    # color = ImageEnhance.Color(image)
+    # modified = color.enhance(factor)
+    return modified
 
 
 def save_img(image, name, enhance=True):
     if enhance is True:
         image = enhance_img(image)
     image.save(name, 'PNG')
+    print('\nCreated image out of ASCII art to "%s" !' % name)

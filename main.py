@@ -23,7 +23,7 @@ if __name__ == "__main__":
     print('\n\nLastly, specify the functioning mode number.\n',
           '1. Express:  The first mode is simply creating the ASCII art in a text file called "results.txt", using a fast computing method.\n',
           '2. Extended: The second mode creates the ASCII art and also creates two additional images(gray, color).\n', sep='')
-    mode = int(input('Functioning mode number :'))
+    mode = int(input('Functioning mode number: '))
     if mode == 1:
         gray_img = scaled_img(img)
         text = write_txt_from_img(gray_img)
@@ -31,5 +31,5 @@ if __name__ == "__main__":
         gray_array = scaled_gray_array(img_ga)
         color_array = scaled_color_array(img_ca)
         text = write_txt_from_array(gray_array)
-        save_img(get_gray_img(text, img_ga.shape[0], img_ga.shape[1]), name='result_gray')
-        save_img(get_color_img(color_array, text, img_ga.shape[0], img_ga.shape[1]), name='result_color')
+        save_img(get_gray_img(text, img_ga.shape[0], img_ga.shape[1]), name='result_gray.png')
+        save_img(get_color_img(color_array, text, img_ga.shape[0], img_ga.shape[1]), name='result_color.png')
