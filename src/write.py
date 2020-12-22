@@ -1,13 +1,14 @@
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from src.traverse import get_scaling, get_patch
 from src.style import get_mapping
+import os
 
 #  !~~~~~~~~~~~~~~~~~~~~~~~ GUIDE ~~~~~~~~~~~~~~~~~~~~~~~!
 
 #  FONT_PATH = path to the font you wish to use
 #  MAXIFY => arbitrary size for a better visible output image, can be changed to any integer
 
-font_path = '/usr/share/fonts/truetype/freefont/FreeMono.ttf'
+font_path = os.getcwd() + '\\src\\fonts\\FreeMono.ttf'
 maxify = 3
 
 
